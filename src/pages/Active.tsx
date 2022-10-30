@@ -1,8 +1,8 @@
 import { RootState, useAppDispatch, useAppSelector } from "../Redux/store"
 import { toggleTodoStatus } from "../Redux/todosSlice";
 
-export default function Todos() {
-    const todos = useAppSelector((state: RootState) => state.todos.list);
+export default function Active() {
+    const todos = useAppSelector((state: RootState) => state.todos.list.filter(el => el.completed !== true));
     const dispatch = useAppDispatch();
 
     return (
@@ -21,5 +21,5 @@ export default function Todos() {
             ))}
 
         </div>
-    );
-};
+    )
+}
