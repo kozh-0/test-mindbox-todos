@@ -14,7 +14,7 @@ body {
 .main {
   width: 100vw;
   height: 100vh;
-  h2 {text-align: center; font-weight: 100; margin-bottom: 10px; color: rgba(212, 53, 47, .4)}
+  h2 {text-align: center; font-weight: 100; margin: 10px 0; color: rgba(212, 53, 47, .4)}
 }
 .container {
   max-width: 500px;
@@ -27,6 +27,7 @@ body {
   overflow: hidden;
   box-shadow: 1px 4px 17px rgba(34, 60, 80, 0.2);
   &_input {
+    position: relative;
     input {
       margin: 0 !important; 
       font-style: italic; 
@@ -34,9 +35,10 @@ body {
       padding-left: 8% !important;
     }
     &_send {
-      position: absolute;
       height: 42px;
-      right: 60px;
+      position: absolute;
+      right: -4px;
+      text-transform: none !important;
     }
   }
 
@@ -46,10 +48,14 @@ body {
     &_item {
       padding: 7px;
       border-bottom: 1px solid #ededed;
-
+      
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      
        span {
         color: black;
-        width: 100%;
+        // width: 100%;
         word-wrap: break-word;
       }
     }
@@ -63,21 +69,25 @@ body {
     padding: 7px;
     font-weight: 300;
     &_AAC {
-      a {margin: 0 3px;}
+      a {
+        margin: 0 3px;
+        padding: 0 5px;
+        border-radius: 4px
+      }
     }
   }
 }
 
 
 .bottom {
-  height: 3px;
+  height: 5px;
   border-left: 1px solid #b3b3b3;
   border-right: 1px solid #b3b3b3;
   border-bottom: 1px solid #b3b3b3;
   border-radius: 10px;
   margin: 0 auto;
-  &:nth-child(3) {background-color: #dedede !important; width: 97%;}
-  &:nth-child(4) {background-color: #cfcfcf !important; width: 95%;}
+  &:nth-child(3) {background-color: #e7e7e7 !important; width: 97%;}
+  &:nth-child(4) {background-color: #d3d3d3 !important; width: 95%;}
   
 }
 .message {

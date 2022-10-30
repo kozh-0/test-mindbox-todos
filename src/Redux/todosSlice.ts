@@ -3,7 +3,6 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 interface Itodos {
   input: string;
   isInListStatus: boolean;
-  status: 'All' | 'Active' | 'Completed';
   list: {
     title: string;
     completed: boolean;
@@ -13,7 +12,6 @@ interface Itodos {
 const initialState = {
   input: '',
   isInListStatus: false,
-  status: 'All',
   list: []
 } as Itodos;
 
@@ -44,6 +42,9 @@ export const todosSlice = createSlice({
     },
     clearCompleted: (state) => {
       state.list.map(el => el.completed = false);
+    },
+    deleteTodo: (state, action: PayloadAction<string>) => {
+      state.list = state.list.filter(el => el.title !== action.payload);
     }
   },
 });
@@ -51,5 +52,5 @@ export const todosSlice = createSlice({
 
 // название action генерится само от поля name и методов из полей reducers
 // например counter/increment или counter/decrement
-export const { addTodo, setInput, hideMessage, toggleTodoStatus, clearCompleted } = todosSlice.actions;
+export const { addTodo, setInput, hideMessage, toggleTodoStatus, clearCompleted, deleteTodo } = todosSlice.actions;
 export default todosSlice.reducer;

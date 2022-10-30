@@ -1,5 +1,5 @@
 import { RootState, useAppDispatch, useAppSelector } from "../Redux/store"
-import { toggleTodoStatus } from "../Redux/todosSlice";
+import { deleteTodo, toggleTodoStatus } from "../Redux/todosSlice";
 
 export default function Active() {
     const todos = useAppSelector((state: RootState) => state.todos.list.filter(el => el.completed !== true));
@@ -17,9 +17,9 @@ export default function Active() {
                         />
                         <span style={el.completed ? { color: '#9e9e9e', textDecoration: "line-through" } : {}}>{el.title}</span>
                     </label>
+                    <button onClick={() => dispatch(deleteTodo(el.title))}>&#10008;</button>
                 </div>
             ))}
-
         </div>
-    )
-}
+    );
+};
