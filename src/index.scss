@@ -13,7 +13,7 @@ body {
 .main {
   width: 100vw;
   height: 100vh;
-  h2 {text-align: center;}
+  h2 {text-align: center; font-weight: 100; margin-bottom: 10px; color: rgba(212, 53, 47, .4)}
 }
 .container {
   max-width: 500px;
@@ -22,8 +22,10 @@ body {
 }
 
 .todos {
+  border-radius: 10px;
   background: white;
-  input {margin: 0 !important; font-style: italic;}
+  overflow: hidden;
+  input {margin: 0 !important; font-style: italic; padding-left: 40px !important;}
   box-shadow: 1px 4px 17px rgba(34, 60, 80, 0.2);
   &_list{
     &_item {
@@ -41,5 +43,26 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 7px;
+    font-weight: 300;
+
+    button { border: none; font-weight: 300; }
+    &_AAC {
+      button {margin: 0 3px;}
+    }
   }
+}
+
+.message {
+  display: inline-block;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px;
+  text-align: center;
+  line-height: 1;
+  background:rgba(50, 212, 47, 0.4);
+  box-shadow: 1px 4px 17px rgba(34, 60, 80, 0.2);
+  border: 1px solid rgba(34, 60, 80, 0.2);
+  user-select: none;
+  border-radius: 10px;
 }
