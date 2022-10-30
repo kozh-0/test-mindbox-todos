@@ -6,25 +6,13 @@ interface Itodos {
   list: {
     title: string;
     status: boolean;
-    id: string;
   }[]
 }
 
 const initialState = {
   input: '',
-  isInListStatus: true,
-  list: [
-    {
-      title: 'Next.js',
-      status: true,
-      id: new Date().toString()
-    },
-    {
-      title: 'Angular',
-      status: false,
-      id: 'asdfasfgasf'
-    },
-  ]
+  isInListStatus: false,
+  list: []
 } as Itodos;
 
 export const todosSlice = createSlice({
@@ -38,24 +26,25 @@ export const todosSlice = createSlice({
       if (!state.list.find(el => el.title === action.payload)) {
         state.list.push({
           title: action.payload.trim(),
-          status: false,
-          id: new Date().toString()
+          status: false
         });
         state.input = '';
       } else {
         state.isInListStatus = true;
       }
     },
-    hideMessage: (state) => { state.isInListStatus = false }
-    // changeCheckedStatusById: (state, action: PayloadAction<any>) => {
-    //   state.input = action.payload;
-    // },
-
+    hideMessage: (state) => { state.isInListStatus = false },
+    toggleTodoStatus: (state, action: PayloadAction<string>) => {
+      const toggledTodo = state.list.find(todo => todo.title === action.payload)
+      if (toggledTodo) {
+        toggledTodo.status = !toggledTodo.status
+      };
+    },
   },
 });
 
 
 // название action генерится само от поля name и методов из полей reducers
 // например counter/increment или counter/decrement
-export const { addTodo, setInput, hideMessage } = todosSlice.actions;
+export const { addTodo, setInput, hideMessage, toggleTodoStatus } = todosSlice.actions;
 export default todosSlice.reducer;
