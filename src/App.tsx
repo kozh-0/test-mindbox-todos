@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Status from "./Components/Status";
+import Todos from "./Components/Todos";
+import { useAppDispatch } from "./Redux/store";
+import { setInput } from "./Redux/todosSlice";
 
-function App() {
+export default function App() {
+
+  const dispatch = useAppDispatch();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main className="main">
+      <div className="container">
+        <h2>todos</h2>
+
+        <div className="todos">
+          <input
+            type="text"
+            placeholder="What needs to be done?"
+            onChange={(e) => dispatch(setInput(e.target.value))}
+          />
+
+          <Todos />
+
+          <Status />
+        </div>
+      </div>
+    </main>
   );
 }
 
-export default App;
