@@ -25,7 +25,7 @@ export const todosSlice = createSlice({
       state.input = action.payload;
     },
     addTodo: (state, action: PayloadAction<string>) => {
-      if (!state.list.find(el => el.title === action.payload)) {
+      if (!state.list.find(el => el.title === action.payload) && action.payload) {
         state.list.push({
           title: action.payload.trim(),
           completed: false

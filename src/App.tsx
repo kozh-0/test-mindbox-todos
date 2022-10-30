@@ -27,20 +27,23 @@ export default function App() {
 				<h2>todos</h2>
 
 				<div className="todos">
-					<input
-						type="text"
-						placeholder="What needs to be done?"
-						maxLength={100}
-						value={input}
-						onChange={(e) => dispatch(setInput(e.target.value))}
-						onKeyDown={(e) => { if (e.code === "Enter") dispatch(addTodo(input)) }}
-					/>
+					<div className="todos_input">
+						<input
+							type="text"
+							placeholder="What needs to be done?"
+							maxLength={100}
+							value={input}
+							onChange={(e) => dispatch(setInput(e.target.value))}
+							onKeyDown={(e) => { if (e.code === "Enter") dispatch(addTodo(input)) }}
+						/>
+						<button className="todos_input_send btn" onClick={() => dispatch(addTodo(input))}>Add</button>
+					</div>
 					<Routes>
-						<Route path='/test-mindbox-todos' element={<Todos />}/>
-						<Route path='/test-mindbox-todos/active' element={<Active />}/>
-						<Route path='/test-mindbox-todos/completed' element={<Completed />}/>
+						<Route path='/test-mindbox-todos' element={<Todos />} />
+						<Route path='/test-mindbox-todos/active' element={<Active />} />
+						<Route path='/test-mindbox-todos/completed' element={<Completed />} />
 					</Routes>
-					
+
 					<Status />
 				</div>
 				<div className="bottom"></div>
