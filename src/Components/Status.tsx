@@ -14,7 +14,7 @@ export default function Status() {
 
     return (
         <div className="todos_status">
-            {activeTodos ? <span>{activeTodos} items left</span> : null}
+            {activeTodos ? <span><span>{activeTodos}</span> items left</span> : null}
             <div className="todos_status_AAC">
                 <Link
                     style={!id ? style : {}}

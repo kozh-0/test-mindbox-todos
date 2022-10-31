@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
+import { Footer } from "./Components/Footer";
+
 import Status from "./Components/Status";
 import Todos from "./Components/Todos";
 import Active from "./pages/Active";
@@ -29,6 +31,7 @@ export default function App() {
 				<div className="todos">
 					<div className="todos_input">
 						<input
+							autoFocus
 							type="text"
 							placeholder="What needs to be done?"
 							maxLength={100}
@@ -53,7 +56,7 @@ export default function App() {
 				className="message"
 				onClick={() => dispatch(dispatch(hideMessage()))}
 			>You already have <br /> this todo</div>}
-
+			<Footer />
 		</main>
 	);
 };
