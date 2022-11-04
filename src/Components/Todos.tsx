@@ -11,7 +11,7 @@ export default function Todos() {
                 <div key={el.title} className="todos_list_item">
                     <label
                         tabIndex={0}
-                        onKeyDown={(e) => { if (e.code === 'Enter') dispatch(toggleTodoStatus(el.title)) }}
+                        onKeyDown={(e) => { if (e.key === 'Enter') dispatch(toggleTodoStatus(el.title)) }}
                         aria-label='toggle todo status'
                     >
                         <input

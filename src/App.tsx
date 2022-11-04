@@ -37,7 +37,7 @@ export default function App() {
 							maxLength={100}
 							value={input}
 							onChange={(e) => dispatch(setInput(e.target.value))}
-							onKeyDown={(e) => { if (e.code === "Enter") dispatch(addTodo(input)) }}
+							onKeyDown={(e) => { if (e.key === "Enter") dispatch(addTodo(input)) }}
 						/>
 						<button className="todos_input_send btn" onClick={() => dispatch(addTodo(input))}>Add</button>
 					</div>
